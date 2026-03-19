@@ -3,7 +3,9 @@ import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
-// import Footer from "./components/layout/Footer";
+import Testimonials from "./sections/Testimonials";
+import Footer from "./components/layout/Footer";
+import Skills from "./sections/Skills";
 
 export default function App() {
   return (
@@ -11,9 +13,12 @@ export default function App() {
       <Navbar />
       <Hero />
       <About />
+      <Skills/>
       <Projects />
+      <Testimonials/>
       <Contact />
-      {/* <Footer /> */}
+      
+      <Footer />
     </>
   );
 }
