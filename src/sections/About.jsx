@@ -22,7 +22,7 @@ export default function About() {
             style={{ background: "var(--color-primary)" }}
           />
           <img
-            src="public/WhatsApp Image 2026-03-19.jpeg"
+            src="/me.jpeg"
             alt="Profile"
             className="relative rounded-2xl shadow-xl max-h-[20%] "
           />
