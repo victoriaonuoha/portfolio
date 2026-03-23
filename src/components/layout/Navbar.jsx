@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
 import useScrollSpy from "../../hooks/useScrollSpy";
 
@@ -9,17 +9,24 @@ export default function Navbar() {
   const active = useScrollSpy(sections);
   const [open, setOpen] = useState(false);
 
-  return (
-    <nav className="fixed w-full top-0 z-50 backdrop-blur-md bg-[#0E0E14]/80 border-b border-gray-800">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto";
+  }, [open]);
 
+  return (
+    <nav className="fixed w-full top-0 z-50 bg-[#0E0E14] border-b border-gray-800 shadow-sm">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <h1 className="heading-font text-lg font-bold">DevToria</h1>
 
         {/* Desktop Links */}
         <ul className="hidden md:flex gap-10 relative">
           {sections.map((section) => (
             <li key={section} className="relative">
-              <a href={`#${section}`} className="capitalize text-sm tracking-wide">
+              <a
+                href={`#${section}`}
+                className="capitalize text-sm tracking-wide"
+              >
                 {section}
               </a>
               {active === section && (
@@ -36,34 +43,56 @@ export default function Navbar() {
         {/* Mobile Hamburger */}
         <div className="md:hidden">
           <button onClick={() => setOpen(!open)} aria-label="Toggle Menu">
-            {open ? <FaTimes size={24} /> : <FaBars size={24} />}
+            {open ? <FaTimes size={22} /> : <FaBars size={22} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Panel */}
-      {open && (
-        <motion.div
-          initial={{ x: "100%" }}
-          animate={{ x: 0 }}
-          exit={{ x: "100%" }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="fixed top-0 right-0 w-3/4 h-full bg-[#0E0E14] shadow-xl z-40 flex flex-col p-8 gap-8"
-        >
-          {sections.map((section) => (
-            <a
-              key={section}
-              href={`#${section}`}
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {open && (
+          <>
+            {/* Dark Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
-              className={`text-lg font-semibold ${
-                active === section ? "text-[var(--color-primary)]" : "text-muted"
-              }`}
+              className="fixed inset-0 bg-black/60 z-40"
+            />
+
+            {/* Slide Panel */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 260, damping: 25 }}
+              className="fixed top-0 right-0 w-[75%] h-full bg-[#0E0E14] z-50 flex flex-col p-8 gap-10 shadow-2xl"
             >
-              {section}
-            </a>
-          ))}
-        </motion.div>
-      )}
+              <div className="flex justify-end">
+                <button onClick={() => setOpen(false)}>
+                  <FaTimes size={22} />
+                </button>
+              </div>
+
+              {sections.map((section) => (
+                <a
+                  key={section}
+                  href={`#${section}`}
+                  onClick={() => setOpen(false)}
+                  className={`text-lg font-semibold capitalize transition ${
+                    active === section
+                      ? "text-[var(--color-primary)]"
+                      : "text-gray-300 hover:text-white"
+                  }`}
+                >
+                  {section}
+                </a>
+              ))}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

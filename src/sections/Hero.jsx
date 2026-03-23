@@ -30,7 +30,7 @@ export default function Hero() {
           className="heading-font text-2xl md:text-3xl font-bold mb-4"
         >
           My name is <span style={{ color: "var(--color-primary)" }}>
-            Onoha Victoria
+            Onuoha Victoria
           </span>
         </motion.h2>
 

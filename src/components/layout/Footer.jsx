@@ -4,13 +4,13 @@ import { FaGithub, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="mt-24 border-t border-gray-800 py-12 px-6 section-alt">
+    <footer className=" border-t border-gray-800 py-12 px-6 section-alt">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
 
         {/* Brand & Contact Info */}
         <div className="text-center md:text-left space-y-2">
           <h3 className="heading-font text-xl font-semibold">
-            Onuoha Victoria
+            DevToria
           </h3>
           <p className="text-muted text-sm">
             Building high-performance web experiences
@@ -44,7 +44,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/devtoria/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[var(--color-primary)] transition"
@@ -53,7 +53,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://twitter.com/yourusername"
+            href="https://twitter.com/Goziechi_01"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[var(--color-primary)] transition"

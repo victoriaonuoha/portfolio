@@ -6,7 +6,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  body {
+ 
   font-family: var(--font-body);
   background-color: var(--bg-primary);
   color: var(--text-primary);
@@ -19,7 +19,7 @@ body {
 .text-muted {
   color: var(--text-muted);
 }
-}
+
 
 .heading-font {
   font-family: var(--font-heading);

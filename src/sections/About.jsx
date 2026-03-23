@@ -4,57 +4,62 @@ export default function About() {
   return (
     <section
       id="about"
-      className="px-6 max-h-screen flex items-center"
-      // style={{ minHeight: "100vh" }} // ensures full screen height
+      className="relative px-6 lg:px-12 h-screen flex items-center overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center h-full">
-
-        {/* Image */}
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        
+        {/* Image Side */}
         <motion.div
-          initial={{ opacity: 0, x: -60 }}
+          initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="relative flex justify-center items-center "
+          className="relative flex justify-center"
         >
+          {/* Subtle Glow */}
           <div
-            className="absolute -inset-1 rounded-2xl blur-2xl opacity-30"
+            className="absolute w-[95%] h-[95%] rounded-2xl blur-2xl opacity-20"
             style={{ background: "var(--color-primary)" }}
           />
+
           <img
             src="/me.jpeg"
             alt="Profile"
-            className="relative rounded-2xl shadow-xl max-h-[20%] "
+            className="relative rounded-2xl shadow-lg max-h-[75vh] w-[85%] object-cover"
           />
         </motion.div>
 
-        {/* Content */}
+        {/* Content Side */}
         <motion.div
-          initial={{ opacity: 0, x: 60 }}
+          initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className=" flex flex-col justify-center"
+          className="flex flex-col justify-center"
         >
-          <h2 className="heading-font text-4xl font-bold mb-6">About Me</h2>
+          <h2 className="heading-font text-3xl lg:text-4xl font-bold mb-6">
+            About Me
+          </h2>
 
-          <p className="text-muted leading-relaxed mb-6">
-            I am a graduate of Computer Science with a Bachelor of Science
-            (B.Sc) degree, passionate about building high-performance web
-            applications that solve real-world problems.
-          </p>
+          <div className="space-y-5 text-muted leading-relaxed text-[15.5px] lg:text-base">
+            <p>
+              I am a Computer Science graduate passionate about building
+              high-performance web applications that solve real-world problems
+              with precision and scalability.
+            </p>
 
-          <p className="text-muted leading-relaxed mb-6">
-            Beyond development, I am also a skilled web instructor, dedicated to
-            teaching modern frontend technologies and helping aspiring
-            developers build strong technical foundations.
-          </p>
+            <p>
+              Beyond development, I serve as a web instructor — helping aspiring
+              developers master modern frontend technologies and build strong,
+              production-ready foundations.
+            </p>
 
-          <p className="text-muted leading-relaxed">
-            I have hands-on experience building real-world products — from
-            responsive landing pages to scalable application interfaces —
-            focusing on performance, usability, and conversion-driven design.
-          </p>
+            <p>
+              My experience spans responsive landing pages to scalable
+              application interfaces, always prioritizing performance,
+              usability, and conversion-focused design systems.
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>
