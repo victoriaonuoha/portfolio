@@ -4,9 +4,9 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative px-6 lg:px-12 h-screen flex items-center overflow-hidden"
+      className="relative px-6 lg:px-12 py-20 md:h-screen flex items-center"
     >
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         
         {/* Image Side */}
         <motion.div
@@ -16,16 +16,16 @@ export default function About() {
           viewport={{ once: true }}
           className="relative flex justify-center"
         >
-          {/* Subtle Glow */}
+          {/* Reduced Glow */}
           <div
-            className="absolute w-[95%] h-[95%] rounded-2xl blur-2xl opacity-20"
+            className="absolute w-[90%] h-[90%] rounded-2xl blur-xl opacity-15"
             style={{ background: "var(--color-primary)" }}
           />
 
           <img
             src="/me.jpeg"
             alt="Profile"
-            className="relative rounded-2xl shadow-lg max-h-[75vh] w-[85%] object-cover"
+            className="relative rounded-2xl shadow-lg w-[85%] max-w-sm md:max-w-none md:max-h-[75vh] object-cover"
           />
         </motion.div>
 
@@ -35,7 +35,7 @@ export default function About() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="flex flex-col justify-center"
+          className="flex flex-col justify-center mt-10 md:mt-0"
         >
           <h2 className="heading-font text-3xl lg:text-4xl font-bold mb-6">
             About Me
