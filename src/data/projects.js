@@ -13,7 +13,7 @@ const projects = [
   },
     {
     id: 2,
-    title: "URL Shortener",
+    title: "Flowmetrics: A Flow Metrics Dashboard",
     image: "/flowmetrics.png",
     tech: ["Next.js", "Tailwind CSS", "JavaScript"],
     github: "https://github.com/victoriaonuoha/flow-metrics",
